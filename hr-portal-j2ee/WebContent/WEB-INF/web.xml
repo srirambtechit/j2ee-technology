@@ -9,17 +9,7 @@
     <welcome-file>default.htm</welcome-file>
     <welcome-file>default.jsp</welcome-file>
   </welcome-file-list>
-  <servlet>
-    <description></description>
-    <display-name>BootstrapServlet</display-name>
-    <servlet-name>BootstrapServlet</servlet-name>
-    <servlet-class>com.hrportal.servlet.BootstrapServlet</servlet-class>
-    <load-on-startup>1</load-on-startup>
-  </servlet>
-  <servlet-mapping>
-    <servlet-name>BootstrapServlet</servlet-name>
-    <url-pattern>/BootstrapServlet</url-pattern>
-  </servlet-mapping>
+  
   <servlet>
     <description></description>
     <display-name>AddOrUpdateDepartmentServlet</display-name>

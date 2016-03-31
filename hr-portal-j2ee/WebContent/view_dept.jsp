@@ -16,6 +16,7 @@
 
 		<p
 			style="font-size: 13px; font-family: arial, verdana; color: red; font-weight: bold;">
+			<!-- Below message comes from session attribute -->
 			<%
 			    Object message = session.getAttribute("message");
 			    if (message != null) {

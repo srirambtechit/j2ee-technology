@@ -9,7 +9,6 @@
     <welcome-file>default.htm</welcome-file>
     <welcome-file>default.jsp</welcome-file>
   </welcome-file-list>
-  
   <servlet>
     <description></description>
     <display-name>AddOrUpdateDepartmentServlet</display-name>
@@ -39,5 +38,45 @@
   <servlet-mapping>
     <servlet-name>DeleteDepartmentServlet</servlet-name>
     <url-pattern>/DeleteDepartmentServlet</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>AddOrUpdateEmployeeServlet</display-name>
+    <servlet-name>AddOrUpdateEmployeeServlet</servlet-name>
+    <servlet-class>com.hrportal.servlet.AddOrUpdateEmployeeServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>AddOrUpdateEmployeeServlet</servlet-name>
+    <url-pattern>/AddOrUpdateEmployeeServlet</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>EditEmployeeServlet</display-name>
+    <servlet-name>EditEmployeeServlet</servlet-name>
+    <servlet-class>com.hrportal.servlet.EditEmployeeServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>EditEmployeeServlet</servlet-name>
+    <url-pattern>/EditEmployeeServlet</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>DeleteEmployeeServlet</display-name>
+    <servlet-name>DeleteEmployeeServlet</servlet-name>
+    <servlet-class>com.hrportal.servlet.DeleteEmployeeServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>DeleteEmployeeServlet</servlet-name>
+    <url-pattern>/DeleteEmployeeServlet</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>AssignDepartmentServlet</display-name>
+    <servlet-name>AssignDepartmentServlet</servlet-name>
+    <servlet-class>com.hrportal.servlet.AssignDepartmentServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>AssignDepartmentServlet</servlet-name>
+    <url-pattern>/AssignDepartmentServlet</url-pattern>
   </servlet-mapping>
 </web-app>

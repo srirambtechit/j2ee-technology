@@ -49,7 +49,7 @@
 </head>
 <body>
 	<center>
-		<form action="" method="post">
+		<form action="AddOrUpdateEmployeeServlet" method="post">
 			<table cellpadding="3" cellspacing="5">
 				<caption>
 					<b>Employee Form</b>

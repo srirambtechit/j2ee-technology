@@ -7,18 +7,19 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import com.hrportal.dao.DepartmentDAO;
+import com.hrportal.dao.EmployeeDAO;
+import com.hrportal.dos.EmployeeDO;
 
 /**
- * Servlet implementation class DeleteDepartmentServlet
+ * Servlet implementation class EditDepartmentServlet
  */
-public class DeleteDepartmentServlet extends HttpServlet {
+public class EditEmployeeServlet extends HttpServlet {
     private static final long serialVersionUID = 1L;
 
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public DeleteDepartmentServlet() {
+    public EditEmployeeServlet() {
 	super();
     }
 
@@ -40,12 +41,13 @@ public class DeleteDepartmentServlet extends HttpServlet {
 
     private void processRequest(HttpServletRequest request, HttpServletResponse response) {
 	int id = Integer.parseInt(request.getParameter("id"));
-	DepartmentDAO dao = new DepartmentDAO();
+
+	EmployeeDAO dao = new EmployeeDAO();
+	EmployeeDO employeeDO = dao.fetch(id);
 	try {
-	    dao.delete(id);
-	    request.setAttribute("message", "Dept ID " + id + " has been deleted successfully");
-	    request.getRequestDispatcher("view_dept.jsp").forward(request, response);
-	} catch (IOException | ServletException e) {
+	    request.setAttribute("employeeDO", employeeDO);
+	    request.getRequestDispatcher("edit_employee.jsp").forward(request, response);
+	} catch (ServletException | IOException e) {
 	    e.printStackTrace();
 	}
     }

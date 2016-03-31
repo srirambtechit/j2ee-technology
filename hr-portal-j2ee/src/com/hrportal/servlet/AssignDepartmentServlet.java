@@ -1,24 +1,26 @@
 package com.hrportal.servlet;
 
 import java.io.IOException;
+import java.util.Arrays;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import com.hrportal.dao.DepartmentDAO;
+import com.hrportal.dao.EmployeeDepartmentAssignmentDAO;
+import com.hrportal.dos.EmployeeDepartmentAssignmentDO;
 
 /**
- * Servlet implementation class DeleteDepartmentServlet
+ * Servlet implementation class AssignDepartmentServlet
  */
-public class DeleteDepartmentServlet extends HttpServlet {
+public class AssignDepartmentServlet extends HttpServlet {
     private static final long serialVersionUID = 1L;
 
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public DeleteDepartmentServlet() {
+    public AssignDepartmentServlet() {
 	super();
     }
 
@@ -39,13 +41,22 @@ public class DeleteDepartmentServlet extends HttpServlet {
     }
 
     private void processRequest(HttpServletRequest request, HttpServletResponse response) {
-	int id = Integer.parseInt(request.getParameter("id"));
-	DepartmentDAO dao = new DepartmentDAO();
+	String deptId = request.getParameter("dept_name");
+	String[] employeeIds = request.getParameterValues("employee_id");
+	EmployeeDepartmentAssignmentDAO dao = new EmployeeDepartmentAssignmentDAO();
+
+	if (deptId != null && employeeIds != null) {
+	    EmployeeDepartmentAssignmentDO empDeptDO = new EmployeeDepartmentAssignmentDO();
+	    for (String empId : employeeIds) {
+		empDeptDO.setDepartmentId(Integer.parseInt(deptId));
+		empDeptDO.setEmployeeId(Integer.parseInt(empId));
+		dao.add(empDeptDO);
+	    }
+	}
 	try {
-	    dao.delete(id);
-	    request.setAttribute("message", "Dept ID " + id + " has been deleted successfully");
+	    request.setAttribute("message", "Emp ID" + Arrays.toString(employeeIds) + " has been assigned with Dept ID[" + deptId + "] successfully");
 	    request.getRequestDispatcher("view_dept.jsp").forward(request, response);
-	} catch (IOException | ServletException e) {
+	} catch (ServletException | IOException e) {
 	    e.printStackTrace();
 	}
     }

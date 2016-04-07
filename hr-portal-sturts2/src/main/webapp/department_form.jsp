@@ -14,9 +14,16 @@
 
 		<s:form action="actionDepartment" method="post">
 			<h3>Department Form</h3>
-			<s:hidden name="id" />
+			<s:property value="ID: #{id}" />
+			<s:if test="#{id == 0}">
+				<s:hidden name="id" value="0" />
+			</s:if>
+			<s:else>
+				<s:hidden name="id" value="id" />
+			</s:else>
+			
 			<s:textfield name="name" label="Name" />
-			<s:select name="type" list="{'H': 'Horizontal', 'V': 'Vertical', 'O':'Organization'}" />
+			<s:select name="type" list="#{'H': 'Horizontal', 'V': 'Vertical', 'O':'Organization'}" label="Type" />
 			<s:submit />
 		</s:form>
 

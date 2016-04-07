@@ -19,10 +19,10 @@
 
 		<div>
 			<h3>Department</h3>
-			<s:a href="add_dept.jsp">Add new department</s:a>
-			<s:a href="view_dept.jsp">Edit department</s:a>
-			<s:a href="view_dept.jsp">Delete department</s:a>
-			<s:a href="view_dept.jsp">View departments</s:a>
+			<s:a href="department_form.jsp">Add new department</s:a>
+			<s:a href="view_department.jsp">Edit department</s:a>
+			<s:a href="view_department.jsp">Delete department</s:a>
+			<s:a href="view_department.jsp">View departments</s:a>
 		</div>
 	</center>
 </body>

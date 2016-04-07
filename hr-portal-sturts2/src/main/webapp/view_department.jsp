@@ -42,7 +42,7 @@
 				<td><%=id%></td>
 				<td><%=rs.getString(2)%></td>
 				<td><a href="editDepartment?id=<%=id%>">E</a></td>
-				<td><a href="DeleteDepartmentServlet?id=<%=id%>">D</a></td>
+				<td><a href="deleteDepartment?id=<%=id%>">D</a></td>
 			</tr>
 
 			<%

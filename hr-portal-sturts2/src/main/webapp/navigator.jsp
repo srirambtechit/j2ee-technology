@@ -15,10 +15,10 @@
 	</tr>
 	<tr>
 		<td>Department:</td>
-		<td><a href="add_dept.jsp">Add</a></td>
-		<td><a href="view_dept.jsp">Edit</a></td>
-		<td><a href="view_dept.jsp">Delete</a></td>
-		<td><a href="view_dept.jsp">View</a></td>
-		<td><a href="assign_dept.jsp">Assign</a></td>
+		<td><a href="department_form.jsp">Add</a></td>
+		<td><a href="view_department.jsp">Edit</a></td>
+		<td><a href="view_department.jsp">Delete</a></td>
+		<td><a href="view_department.jsp">View</a></td>
+		<td><a href="assign_department.jsp">Assign</a></td>
 	</tr>
 </table>

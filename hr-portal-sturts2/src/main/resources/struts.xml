@@ -25,7 +25,7 @@
 			<result name="employeeForm">employee_form.jsp</result>
 		</action>
 		
-		<action name="actionDepartment" class="com.hrportal.actions.EmployeeAction" method="actionDepartment">
+		<action name="actionDepartment" class="com.hrportal.actions.DepartmentAction" method="actionDepartment">
 			<result name="success">view_department.jsp</result>
 		</action>
 		

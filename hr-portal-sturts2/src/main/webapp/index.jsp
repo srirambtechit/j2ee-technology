@@ -11,7 +11,7 @@
 		<h1>Welcome to HR Portal</h1>
 		<div>
 			<h3>Employee</h3>
-			<s:a href="add_employee.jsp">Add new employee</s:a>
+			<s:a href="employee_form.jsp">Add new employee</s:a>
 			<s:a href="view_employee.jsp">Edit employee</s:a>
 			<s:a href="view_employee.jsp">Delete employee</s:a>
 			<s:a href="view_employee.jsp">View employees</s:a>

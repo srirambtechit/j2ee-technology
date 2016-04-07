@@ -11,9 +11,9 @@
 		<action name="index">
 			<result>index.jsp</result>
 		</action>
-<!-- 		<action name="Welcome" class="com.mkyong.user.action.WelcomeUserAction">
-			<result name="SUCCESS">pages/welcome_user.jsp</result>
-		</action> -->
+		<action name="employeeAction" class="com.hrportal.actions.EmployeeAction">
+			<result name="success">view_employee.jsp</result>
+		</action>
 	</package>
 
 </struts>

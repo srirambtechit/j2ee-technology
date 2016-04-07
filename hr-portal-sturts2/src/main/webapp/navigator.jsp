@@ -3,7 +3,7 @@
 <table cellpadding="3" cellspacing="5">
 	<tr>
 		<td>Employee:</td>
-		<td><a href="add_employee.jsp">Add</a></td>
+		<td><a href="employee_form.jsp">Add</a></td>
 		<td><a href="view_employee.jsp">Edit</a></td>
 		<td><a href="view_employee.jsp">Delete</a></td>
 		<td><a href="view_employee.jsp">View</a></td>

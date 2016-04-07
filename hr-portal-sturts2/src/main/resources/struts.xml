@@ -8,12 +8,39 @@
 	<constant name="struts.devMode" value="true" />
 
 	<package name="hrportal" extends="struts-default">
+		
 		<action name="index">
 			<result>index.jsp</result>
 		</action>
-		<action name="employeeAction" class="com.hrportal.actions.EmployeeAction">
+		
+		<action name="actionEmployee" class="com.hrportal.actions.EmployeeAction">
 			<result name="success">view_employee.jsp</result>
 		</action>
+		
+		<action name="deleteEmployee" class="com.hrportal.actions.EmployeeAction" method="deleteEmployee">
+			<result name="success">view_employee.jsp</result>
+		</action>
+		
+		<action name="editEmployee" class="com.hrportal.actions.EmployeeAction" method="editEmployee">
+			<result name="employeeForm">employee_form.jsp</result>
+		</action>
+		
+		<action name="actionDepartment" class="com.hrportal.actions.EmployeeAction" method="actionDepartment">
+			<result name="success">view_department.jsp</result>
+		</action>
+		
+		<action name="editDepartment" class="com.hrportal.actions.DepartmentAction" method="editDepartment">
+			<result name="departmentForm">department_form.jsp</result>
+		</action>
+		
+		<action name="deleteDepartment" class="com.hrportal.actions.DepartmentAction" method="deleteDepartment">
+			<result name="success">view_department.jsp</result>
+		</action>
+		
+		<action name="assignDepartment" class="com.hrportal.actions.DepartmentAction" method="assignDepartment">
+			<result name="success">view_department.jsp</result>
+		</action>		
+		
 	</package>
 
 </struts>

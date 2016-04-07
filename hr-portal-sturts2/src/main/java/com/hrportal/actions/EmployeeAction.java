@@ -1,24 +1,15 @@
 package com.hrportal.actions;
 
-import java.io.IOException;
+import java.sql.Date;
 import java.util.Calendar;
-
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
-
-import org.apache.struts2.interceptor.ServletRequestAware;
-import org.apache.struts2.interceptor.ServletResponseAware;
 
 import com.hrportal.dao.EmployeeDAO;
 import com.hrportal.dos.EmployeeDO;
-import com.opensymphony.xwork2.Action;
+import com.opensymphony.xwork2.ActionSupport;
 
-public class EmployeeAction implements Action, ServletRequestAware,
-		ServletResponseAware {
+public class EmployeeAction extends ActionSupport {
 
-	private HttpServletRequest request;
-
-	private HttpServletResponse response;
+	private static final long serialVersionUID = 1L;
 
 	private int id;
 	private String name;
@@ -132,22 +123,38 @@ public class EmployeeAction implements Action, ServletRequestAware,
 			message = "Employee ID " + id + " - " + name
 					+ " is updated successfully";
 		}
-		try {
-			request.getSession().setAttribute("message", message);
-			response.sendRedirect("view_employee.jsp");
-		} catch (IOException e) {
-			e.printStackTrace();
-		}
-
+		addActionMessage(message);
 		return SUCCESS;
 	}
 
-	public void setServletRequest(HttpServletRequest request) {
-		this.request = request;
+	public String editEmployee() {
+		EmployeeDAO dao = new EmployeeDAO();
+		EmployeeDO employeeDO = dao.fetch(id);
+		setId(employeeDO.getId());
+		setName(employeeDO.getName());
+		setAge(employeeDO.getAge());
+		setAddress(employeeDO.getAddress());
+		setEmail(employeeDO.getEmail());
+		if (employeeDO.getSex() == 'M')
+			setGender(1);
+		else
+			setGender(2);
+		Date dob = employeeDO.getDob();
+		Calendar c = Calendar.getInstance();
+		c.setTimeInMillis(dob.getTime());
+
+		setDate(c.get(Calendar.DATE));
+		setMonth(c.get(Calendar.MONTH) + 1);
+		setYear(c.get(Calendar.YEAR));
+
+		return "employeeForm";
 	}
 
-	public void setServletResponse(HttpServletResponse response) {
-		this.response = response;
+	public String deleteEmployee() {
+		EmployeeDAO dao = new EmployeeDAO();
+		dao.delete(id);
+		addActionMessage("Employee ID " + id + " has been deleted successfully");
+		return SUCCESS;
 	}
 
 }

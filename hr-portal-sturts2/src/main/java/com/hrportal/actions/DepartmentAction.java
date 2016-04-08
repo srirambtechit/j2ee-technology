@@ -80,7 +80,7 @@ public class DepartmentAction extends ActionSupport implements
 
 		String message;
 		if (id == 0) {
-			dao.add(deptDO);
+//			dao.add(deptDO);
 			message = "Department " + name + " is added successfully";
 		} else {
 			deptDO.setId(id);

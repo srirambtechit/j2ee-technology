@@ -12,6 +12,7 @@ http://192.168.1.1:8080/mywebapp/index.html
 mywebapp/
 ├── index.html
 ├── META-INF
+│   └── MANIFEST.MF
 └── WEB-INF
     ├── classes
     ├── lib
@@ -19,3 +20,6 @@ mywebapp/
 `
 - mywebapp is project name
 - It is context root as well
+
+## What is private area in structure
+

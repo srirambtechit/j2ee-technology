@@ -14,12 +14,13 @@
 
 		<s:form action="actionDepartment" method="post">
 			<h3>Department Form</h3>
-			<s:property value="ID: #{id}" />
-			<s:if test="#{id == 0}">
+			<s:property value="Test" /><br/>
+			hi<s:property value="#request.id"  /><br/>
+			<s:if test="%{#request.id == 0}">
 				<s:hidden name="id" value="0" />
 			</s:if>
 			<s:else>
-				<s:hidden name="id" value="id" />
+				<s:hidden name="id" value="#id" />
 			</s:else>
 			
 			<s:textfield name="name" label="Name" />

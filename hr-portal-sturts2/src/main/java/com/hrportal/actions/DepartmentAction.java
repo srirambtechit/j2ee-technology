@@ -111,7 +111,7 @@ public class DepartmentAction extends ActionSupport implements
 	public String assignDepartment() {
 		String[] employeeIds = request.getParameterValues("employee_id");
 		EmployeeDepartmentAssignmentDAO dao = new EmployeeDepartmentAssignmentDAO();
-		if (id != 0) {
+		if (employeeIds != null) {
 			EmployeeDepartmentAssignmentDO empDeptDO = new EmployeeDepartmentAssignmentDO();
 			for (String empId : employeeIds) {
 				empDeptDO.setDepartmentId(id);

@@ -46,7 +46,7 @@
 									int id = rs.getInt(1);
 									String name = rs.getString(2);
 							%>
-							<input type="checkbox" name="employeeId" value="<%=id%>" /><%=name + ", " + id%><br />
+							<input type="checkbox" name="employee_id" value="<%=id%>" /><%=name + ", " + id%><br />
 							<%
 							    }
 							    rs.close();

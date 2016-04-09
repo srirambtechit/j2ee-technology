@@ -13,8 +13,19 @@
 
 		<s:form action="actionEmployee" method="post">
 			<h3>Employee Form</h3>
-			<s:hidden name="id" />
-			<s:label value="#{ ID : id }" />
+			
+			<s:if test="%{ id != 0 }">
+				<s:if test="%{ #request.id == null }">
+					<s:hidden name="id" value="0" />
+				</s:if>
+				<s:else>
+					<s:hidden name="id" />
+				</s:else>
+			</s:if>
+			<s:else>
+				<s:hidden name="id" value="0" />
+			</s:else>
+			
 			<s:textfield name="name" label="Name" />
 			<s:textfield name="age" label="Age" />
 			<s:textarea name="address" label="Address" rows="4" cols="22" />

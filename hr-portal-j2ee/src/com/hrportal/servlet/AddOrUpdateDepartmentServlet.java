@@ -7,7 +7,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import com.hrportal.dao.DepartmentDAO;
+import com.hrportal.dao.impl.DepartmentDAOImpl;
 import com.hrportal.dos.DepartmentDO;
 
 /**
@@ -43,7 +43,7 @@ public class AddOrUpdateDepartmentServlet extends HttpServlet {
 	deptDO.setCategory(type.charAt(0));
 
 	String message = "";
-	DepartmentDAO dao = new DepartmentDAO();
+	DepartmentDAOImpl dao = new DepartmentDAOImpl();
 
 	if (id == null || id.isEmpty()) {
 	    dao.add(deptDO);

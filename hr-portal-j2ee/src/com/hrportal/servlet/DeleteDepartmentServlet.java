@@ -7,7 +7,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import com.hrportal.dao.DepartmentDAO;
+import com.hrportal.dao.impl.DepartmentDAOImpl;
 
 /**
  * Servlet implementation class DeleteDepartmentServlet
@@ -40,7 +40,7 @@ public class DeleteDepartmentServlet extends HttpServlet {
 
     private void processRequest(HttpServletRequest request, HttpServletResponse response) {
 	int id = Integer.parseInt(request.getParameter("id"));
-	DepartmentDAO dao = new DepartmentDAO();
+	DepartmentDAOImpl dao = new DepartmentDAOImpl();
 	try {
 	    dao.delete(id);
 	    request.setAttribute("message", "Dept ID " + id + " has been deleted successfully");

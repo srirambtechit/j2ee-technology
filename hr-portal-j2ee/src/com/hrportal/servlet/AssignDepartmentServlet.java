@@ -8,7 +8,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import com.hrportal.dao.EmployeeDepartmentAssignmentDAO;
+import com.hrportal.dao.impl.EmployeeDepartmentAssignmentDAOImpl;
 import com.hrportal.dos.EmployeeDepartmentAssignmentDO;
 
 /**
@@ -43,7 +43,7 @@ public class AssignDepartmentServlet extends HttpServlet {
     private void processRequest(HttpServletRequest request, HttpServletResponse response) {
 	String deptId = request.getParameter("dept_name");
 	String[] employeeIds = request.getParameterValues("employee_id");
-	EmployeeDepartmentAssignmentDAO dao = new EmployeeDepartmentAssignmentDAO();
+	EmployeeDepartmentAssignmentDAOImpl dao = new EmployeeDepartmentAssignmentDAOImpl();
 
 	if (deptId != null && employeeIds != null) {
 	    EmployeeDepartmentAssignmentDO empDeptDO = new EmployeeDepartmentAssignmentDO();

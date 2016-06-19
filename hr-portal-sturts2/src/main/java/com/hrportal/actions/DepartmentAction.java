@@ -6,8 +6,8 @@ import javax.servlet.http.HttpServletRequest;
 
 import org.apache.struts2.interceptor.ServletRequestAware;
 
-import com.hrportal.dao.DepartmentDAO;
-import com.hrportal.dao.EmployeeDepartmentAssignmentDAO;
+import com.hrportal.dao.impl.DepartmentDAOImpl;
+import com.hrportal.dao.impl.EmployeeDepartmentAssignmentDAOImpl;
 import com.hrportal.dos.DepartmentDO;
 import com.hrportal.dos.EmployeeDepartmentAssignmentDO;
 import com.opensymphony.xwork2.ActionSupport;
@@ -76,7 +76,7 @@ public class DepartmentAction extends ActionSupport implements
 		DepartmentDO deptDO = new DepartmentDO();
 		deptDO.setName(name);
 		deptDO.setCategory(type);
-		DepartmentDAO dao = new DepartmentDAO();
+		DepartmentDAOImpl dao = new DepartmentDAOImpl();
 
 		String message;
 		if (id == 0) {
@@ -93,7 +93,7 @@ public class DepartmentAction extends ActionSupport implements
 	}
 
 	public String editDepartment() {
-		DepartmentDAO dao = new DepartmentDAO();
+		DepartmentDAOImpl dao = new DepartmentDAOImpl();
 		DepartmentDO deptDO = dao.fetch(id);
 		setId(deptDO.getId());
 		setName(deptDO.getName());
@@ -102,7 +102,7 @@ public class DepartmentAction extends ActionSupport implements
 	}
 
 	public String deleteDepartment() {
-		DepartmentDAO dao = new DepartmentDAO();
+		DepartmentDAOImpl dao = new DepartmentDAOImpl();
 		dao.delete(id);
 		addActionMessage("Dept ID " + id + " has been deleted successfully");
 		return SUCCESS;
@@ -110,7 +110,7 @@ public class DepartmentAction extends ActionSupport implements
 
 	public String assignDepartment() {
 		String[] employeeIds = request.getParameterValues("employee_id");
-		EmployeeDepartmentAssignmentDAO dao = new EmployeeDepartmentAssignmentDAO();
+		EmployeeDepartmentAssignmentDAOImpl dao = new EmployeeDepartmentAssignmentDAOImpl();
 		if (employeeIds != null) {
 			EmployeeDepartmentAssignmentDO empDeptDO = new EmployeeDepartmentAssignmentDO();
 			for (String empId : employeeIds) {

@@ -3,7 +3,7 @@ package com.hrportal.actions;
 import java.sql.Date;
 import java.util.Calendar;
 
-import com.hrportal.dao.EmployeeDAO;
+import com.hrportal.dao.impl.EmployeeDAOImpl;
 import com.hrportal.dos.EmployeeDO;
 import com.opensymphony.xwork2.ActionSupport;
 
@@ -110,7 +110,7 @@ public class EmployeeAction extends ActionSupport {
 			employeeDO.setSex('F');
 
 		String message = "";
-		EmployeeDAO dao = new EmployeeDAO();
+		EmployeeDAOImpl dao = new EmployeeDAOImpl();
 		// Request is for insert new Employee to Database
 		if (id == 0) {
 			dao.add(employeeDO);
@@ -128,7 +128,7 @@ public class EmployeeAction extends ActionSupport {
 	}
 
 	public String editEmployee() {
-		EmployeeDAO dao = new EmployeeDAO();
+		EmployeeDAOImpl dao = new EmployeeDAOImpl();
 		EmployeeDO employeeDO = dao.fetch(id);
 		setId(employeeDO.getId());
 		setName(employeeDO.getName());
@@ -151,7 +151,7 @@ public class EmployeeAction extends ActionSupport {
 	}
 
 	public String deleteEmployee() {
-		EmployeeDAO dao = new EmployeeDAO();
+		EmployeeDAOImpl dao = new EmployeeDAOImpl();
 		dao.delete(id);
 		addActionMessage("Employee ID " + id + " has been deleted successfully");
 		return SUCCESS;

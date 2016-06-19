@@ -7,7 +7,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import com.hrportal.dao.DepartmentDAO;
+import com.hrportal.dao.impl.DepartmentDAOImpl;
 import com.hrportal.dos.DepartmentDO;
 
 /**
@@ -42,7 +42,7 @@ public class EditDepartmentServlet extends HttpServlet {
     private void processRequest(HttpServletRequest request, HttpServletResponse response) {
 	int id = Integer.parseInt(request.getParameter("id"));
 
-	DepartmentDAO dao = new DepartmentDAO();
+	DepartmentDAOImpl dao = new DepartmentDAOImpl();
 	DepartmentDO deptDO = dao.fetch(id);
 	try {
 	    request.setAttribute("deptDO", deptDO);
